@@ -1,308 +1,781 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Motion Forge | AI Creative Studio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<title>Motion Forge — AI Creative Studio</title>
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #080808;
-            color: white;
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        header {
-            padding: 25px 7%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #222;
-        }
+html {
+    scroll-behavior: smooth;
+}
 
-        .logo {
-            font-size: 22px;
-            font-weight: bold;
-        }
+body {
+    background: #080808;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
 
-        nav a {
-            color: #aaa;
-            text-decoration: none;
-            margin-left: 30px;
-        }
+/* NAVIGATION */
 
-        nav a:hover {
-            color: white;
-        }
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 24px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(8,8,8,0.85);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid #222;
+}
 
-        .hero {
-            min-height: 75vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 80px 7%;
-        }
+.logo {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
 
-        .hero span {
-            color: #888;
-            font-size: 14px;
-            letter-spacing: 3px;
-            margin-bottom: 20px;
-        }
+nav {
+    display: flex;
+    gap: 30px;
+}
 
-        h1 {
-            font-size: clamp(50px, 9vw, 110px);
-            line-height: 0.95;
-            max-width: 1000px;
-        }
+nav a {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
 
-        .hero p {
-            max-width: 600px;
-            color: #999;
-            font-size: 18px;
-            line-height: 1.6;
-            margin-top: 30px;
-        }
+nav a:hover {
+    color: #fff;
+}
 
-        .button {
-            display: inline-block;
-            width: fit-content;
-            margin-top: 35px;
-            padding: 15px 25px;
-            background: white;
-            color: black;
-            text-decoration: none;
-            font-weight: bold;
-        }
+/* HERO */
 
-        section {
-            padding: 100px 7%;
-        }
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 150px 7% 100px;
+}
 
-        .section-title {
-            font-size: 45px;
-            margin-bottom: 50px;
-        }
+.eyebrow {
+    color: #777;
+    font-size: 13px;
+    letter-spacing: 4px;
+    margin-bottom: 25px;
+}
 
-        .work-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-        }
+.hero h1 {
+    font-size: clamp(55px, 10vw, 130px);
+    line-height: 0.88;
+    letter-spacing: -5px;
+    max-width: 1100px;
+}
 
-        .work-card {
-            background: #111;
-            border: 1px solid #222;
-            overflow: hidden;
-        }
+.hero h1 span {
+    color: #666;
+}
 
-        .video-placeholder {
-            aspect-ratio: 16 / 9;
-            background: #181818;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #777;
-            font-size: 18px;
-        }
+.hero p {
+    color: #999;
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 620px;
+    margin-top: 35px;
+}
 
-        .work-info {
-            padding: 22px;
-        }
+.button {
+    display: inline-block;
+    width: fit-content;
+    margin-top: 35px;
+    padding: 16px 28px;
+    background: #fff;
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
 
-        .work-info h3 {
-            font-size: 22px;
-            margin-bottom: 8px;
-        }
+.button:hover {
+    background: #ccc;
+    transform: translateY(-3px);
+}
 
-        .work-info p {
-            color: #777;
-        }
+/* GENERAL SECTION */
 
-        .services {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-        }
+section {
+    padding: 110px 7%;
+}
 
-        .service {
-            border-top: 1px solid #333;
-            padding: 25px 0;
-            font-size: 24px;
-        }
+.section-label {
+    color: #666;
+    font-size: 12px;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
 
-        .contact {
-            text-align: center;
-            padding: 150px 7%;
-            border-top: 1px solid #222;
-        }
+.section-title {
+    font-size: clamp(40px, 6vw, 75px);
+    letter-spacing: -3px;
+    margin-bottom: 55px;
+}
 
-        .contact h2 {
-            font-size: clamp(45px, 8vw, 90px);
-        }
+/* CATEGORY FILTER */
 
-        .contact p {
-            color: #888;
-            margin: 25px 0;
-        }
+.filters {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
 
-        footer {
-            padding: 30px 7%;
-            color: #555;
-            border-top: 1px solid #222;
-        }
+.filter-btn {
+    background: transparent;
+    color: #888;
+    border: 1px solid #333;
+    padding: 11px 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
-        @media (max-width: 700px) {
-            nav {
-                display: none;
-            }
+.filter-btn:hover,
+.filter-btn.active {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+}
 
-            .work-grid,
-            .services {
-                grid-template-columns: 1fr;
-            }
+/* WORK GRID */
 
-            section {
-                padding: 70px 6%;
-            }
-        }
-    </style>
+.work-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.work-card {
+    background: #111;
+    border: 1px solid #222;
+    overflow: hidden;
+    transition: 0.4s;
+}
+
+.work-card:hover {
+    transform: translateY(-6px);
+    border-color: #444;
+}
+
+.video-box {
+    aspect-ratio: 16 / 9;
+    background: #171717;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #666;
+    font-size: 15px;
+    position: relative;
+}
+
+.play {
+    width: 55px;
+    height: 55px;
+    border: 1px solid #555;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.work-info {
+    padding: 22px;
+}
+
+.work-info h3 {
+    font-size: 21px;
+    margin-bottom: 8px;
+}
+
+.work-info p {
+    color: #777;
+    font-size: 14px;
+}
+
+/* SERVICES */
+
+.services {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.service {
+    border-top: 1px solid #292929;
+    padding: 30px 0;
+    font-size: clamp(22px, 3vw, 35px);
+    color: #ddd;
+}
+
+.service span {
+    color: #555;
+    margin-right: 15px;
+}
+
+/* ABOUT */
+
+.about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.about h2 {
+    font-size: clamp(40px, 6vw, 75px);
+    line-height: 1;
+}
+
+.about p {
+    color: #888;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+/* CONTACT */
+
+.contact {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    border-top: 1px solid #222;
+}
+
+.contact h2 {
+    font-size: clamp(55px, 10vw, 130px);
+    line-height: 0.9;
+    letter-spacing: -5px;
+}
+
+.contact p {
+    color: #777;
+    margin-top: 30px;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 30px 7%;
+    border-top: 1px solid #222;
+    color: #555;
+    font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* MOBILE */
+
+@media (max-width: 750px) {
+
+    nav {
+        display: none;
+    }
+
+    .hero h1 {
+        letter-spacing: -3px;
+    }
+
+    .work-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .services {
+        grid-template-columns: 1fr;
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    section {
+        padding: 80px 6%;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+</style>
 </head>
 
 <body>
 
+
+<!-- NAVIGATION -->
+
 <header>
-    <div class="logo">MOTION FORGE</div>
+
+    <div class="logo">
+        MOTION FORGE
+    </div>
 
     <nav>
         <a href="#work">Work</a>
         <a href="#services">Services</a>
+        <a href="#about">About</a>
         <a href="#contact">Contact</a>
     </nav>
+
 </header>
 
 
+<!-- HERO -->
+
 <section class="hero">
 
-    <span>AI CREATIVE STUDIO</span>
+    <div class="eyebrow">
+        AI CREATIVE STUDIO
+    </div>
 
     <h1>
-        Visuals that<br>
-        make brands move.
+        Ideas into<br>
+        <span>visuals.</span>
     </h1>
 
     <p>
-        AI-powered reels, product advertisements and
-        creative visual content designed for modern brands.
+        AI-powered advertisements, social media reels and
+        cinematic content created to make brands stand out.
     </p>
 
     <a href="#work" class="button">
-        VIEW MY WORK →
+        EXPLORE MY WORK →
     </a>
 
 </section>
 
+
+<!-- WORK -->
 
 <section id="work">
 
-    <h2 class="section-title">Selected Work</h2>
+    <div class="section-label">
+        PORTFOLIO
+    </div>
+
+    <h2 class="section-title">
+        Selected Work
+    </h2>
+
+
+    <!-- CATEGORY BUTTONS -->
+
+    <div class="filters">
+
+        <button class="filter-btn active" onclick="filterWork('all', this)">
+            All
+        </button>
+
+        <button class="filter-btn" onclick="filterWork('fashion', this)">
+            Fashion
+        </button>
+
+        <button class="filter-btn" onclick="filterWork('furniture', this)">
+            Furniture
+        </button>
+
+        <button class="filter-btn" onclick="filterWork('food', this)">
+            Food & Restaurant
+        </button>
+
+        <button class="filter-btn" onclick="filterWork('beauty', this)">
+            Beauty
+        </button>
+
+        <button class="filter-btn" onclick="filterWork('automotive', this)">
+            Automotive
+        </button>
+
+        <button class="filter-btn" onclick="filterWork('product', this)">
+            Products
+        </button>
+
+        <button class="filter-btn" onclick="filterWork('social', this)">
+            Social Media
+        </button>
+
+        <button class="filter-btn" onclick="filterWork('cinematic', this)">
+            Cinematic
+        </button>
+
+    </div>
+
+
+    <!-- PROJECTS -->
 
     <div class="work-grid">
 
-        <div class="work-card">
-            <div class="video-placeholder">
-                ▶ AI Furniture Advertisement
+
+        <div class="work-card" data-category="fashion">
+
+            <div class="video-box">
+
+                <div class="play">▶</div>
+
             </div>
 
             <div class="work-info">
-                <h3>Luxury Furniture Ad</h3>
-                <p>AI Product Advertisement</p>
+
+                <h3>Fashion Campaign</h3>
+
+                <p>
+                    AI Fashion Advertisement
+                </p>
+
             </div>
+
         </div>
 
 
-        <div class="work-card">
-            <div class="video-placeholder">
-                ▶ AI Social Media Reel
+        <div class="work-card" data-category="furniture">
+
+            <div class="video-box">
+
+                <div class="play">▶</div>
+
             </div>
 
             <div class="work-info">
+
+                <h3>Luxury Furniture</h3>
+
+                <p>
+                    AI Furniture Advertisement
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="work-card" data-category="food">
+
+            <div class="video-box">
+
+                <div class="play">▶</div>
+
+            </div>
+
+            <div class="work-info">
+
+                <h3>Restaurant Campaign</h3>
+
+                <p>
+                    AI Food Advertisement
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="work-card" data-category="beauty">
+
+            <div class="video-box">
+
+                <div class="play">▶</div>
+
+            </div>
+
+            <div class="work-info">
+
+                <h3>Beauty Product</h3>
+
+                <p>
+                    AI Cosmetics Advertisement
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="work-card" data-category="automotive">
+
+            <div class="video-box">
+
+                <div class="play">▶</div>
+
+            </div>
+
+            <div class="work-info">
+
+                <h3>Automotive Campaign</h3>
+
+                <p>
+                    AI Car Advertisement
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="work-card" data-category="product">
+
+            <div class="video-box">
+
+                <div class="play">▶</div>
+
+            </div>
+
+            <div class="work-info">
+
+                <h3>Product Commercial</h3>
+
+                <p>
+                    AI Product Advertisement
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="work-card" data-category="social">
+
+            <div class="video-box">
+
+                <div class="play">▶</div>
+
+            </div>
+
+            <div class="work-info">
+
                 <h3>Social Media Reel</h3>
-                <p>AI Short-form Content</p>
+
+                <p>
+                    AI Short-form Content
+                </p>
+
             </div>
+
         </div>
 
 
-        <div class="work-card">
-            <div class="video-placeholder">
-                ▶ AI Product Video
+        <div class="work-card" data-category="cinematic">
+
+            <div class="video-box">
+
+                <div class="play">▶</div>
+
             </div>
 
             <div class="work-info">
-                <h3>Product Advertisement</h3>
-                <p>AI Product Visualization</p>
+
+                <h3>Cinematic AI Video</h3>
+
+                <p>
+                    AI Cinematic Content
+                </p>
+
             </div>
+
         </div>
 
-
-        <div class="work-card">
-            <div class="video-placeholder">
-                ▶ AI Brand Video
-            </div>
-
-            <div class="work-info">
-                <h3>Brand Campaign</h3>
-                <p>AI Creative Content</p>
-            </div>
-        </div>
 
     </div>
 
 </section>
 
+
+<!-- SERVICES -->
 
 <section id="services">
 
-    <h2 class="section-title">What I Create</h2>
+    <div class="section-label">
+        SERVICES
+    </div>
+
+    <h2 class="section-title">
+        What I Create
+    </h2>
 
     <div class="services">
 
-        <div class="service">AI Reels</div>
-        <div class="service">Product Advertisements</div>
-        <div class="service">Furniture Advertisements</div>
-        <div class="service">Social Media Content</div>
-        <div class="service">AI Product Visualization</div>
-        <div class="service">Creative Brand Videos</div>
+        <div class="service">
+            <span>01</span>
+            AI Advertisements
+        </div>
+
+        <div class="service">
+            <span>02</span>
+            AI Social Media Reels
+        </div>
+
+        <div class="service">
+            <span>03</span>
+            Product Videos
+        </div>
+
+        <div class="service">
+            <span>04</span>
+            Fashion Content
+        </div>
+
+        <div class="service">
+            <span>05</span>
+            Food & Restaurant Ads
+        </div>
+
+        <div class="service">
+            <span>06</span>
+            Furniture Advertising
+        </div>
+
+        <div class="service">
+            <span>07</span>
+            AI Cinematic Videos
+        </div>
+
+        <div class="service">
+            <span>08</span>
+            Brand Content
+        </div>
 
     </div>
 
 </section>
 
 
+<!-- ABOUT -->
+
+<section id="about">
+
+    <div class="about">
+
+        <div>
+
+            <div class="section-label">
+                ABOUT MOTION FORGE
+            </div>
+
+            <h2>
+                Creativity<br>
+                meets AI.
+            </h2>
+
+        </div>
+
+
+        <div>
+
+            <p>
+                Motion Forge creates visually engaging advertising
+                and social media content using modern AI tools.
+            </p>
+
+            <p style="margin-top:25px;">
+                From product advertisements to cinematic reels,
+                the goal is simple — create content that catches
+                attention and makes brands memorable.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
 <section class="contact" id="contact">
 
-    <h2>Let's create<br>something.</h2>
+    <div class="section-label">
+        HAVE A PROJECT?
+    </div>
+
+    <h2>
+        Let's create<br>
+        something.
+    </h2>
 
     <p>
-        Have a product or brand that needs attention?
+        Have a product, brand or idea that needs great visuals?
     </p>
 
     <a class="button" href="mailto:YOUR_EMAIL@gmail.com">
-        CONTACT ME →
+        START A PROJECT →
     </a>
 
 </section>
 
 
+<!-- FOOTER -->
+
 <footer>
-    © 2026 Motion Forge. All rights reserved.
+
+    <div>
+        © 2026 Motion Forge
+    </div>
+
+    <div>
+        AI Creative Studio
+    </div>
+
 </footer>
+
+
+<script>
+
+function filterWork(category, button) {
+
+    const cards = document.querySelectorAll(".work-card");
+    const buttons = document.querySelectorAll(".filter-btn");
+
+    buttons.forEach(btn => {
+        btn.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+    cards.forEach(card => {
+
+        if (category === "all") {
+
+            card.style.display = "block";
+
+        } else if (card.dataset.category === category) {
+
+            card.style.display = "block";
+
+        } else {
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+}
+
+</script>
+
 
 </body>
 </html>
