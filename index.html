@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motion Forge | AI Creative Studio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #080808;
+            color: white;
+        }
+
+        header {
+            padding: 25px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #222;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: #aaa;
+            text-decoration: none;
+            margin-left: 30px;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        .hero {
+            min-height: 75vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 80px 7%;
+        }
+
+        .hero span {
+            color: #888;
+            font-size: 14px;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: clamp(50px, 9vw, 110px);
+            line-height: 0.95;
+            max-width: 1000px;
+        }
+
+        .hero p {
+            max-width: 600px;
+            color: #999;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-top: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            width: fit-content;
+            margin-top: 35px;
+            padding: 15px 25px;
+            background: white;
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        section {
+            padding: 100px 7%;
+        }
+
+        .section-title {
+            font-size: 45px;
+            margin-bottom: 50px;
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .work-card {
+            background: #111;
+            border: 1px solid #222;
+            overflow: hidden;
+        }
+
+        .video-placeholder {
+            aspect-ratio: 16 / 9;
+            background: #181818;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #777;
+            font-size: 18px;
+        }
+
+        .work-info {
+            padding: 22px;
+        }
+
+        .work-info h3 {
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        .work-info p {
+            color: #777;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .service {
+            border-top: 1px solid #333;
+            padding: 25px 0;
+            font-size: 24px;
+        }
+
+        .contact {
+            text-align: center;
+            padding: 150px 7%;
+            border-top: 1px solid #222;
+        }
+
+        .contact h2 {
+            font-size: clamp(45px, 8vw, 90px);
+        }
+
+        .contact p {
+            color: #888;
+            margin: 25px 0;
+        }
+
+        footer {
+            padding: 30px 7%;
+            color: #555;
+            border-top: 1px solid #222;
+        }
+
+        @media (max-width: 700px) {
+            nav {
+                display: none;
+            }
+
+            .work-grid,
+            .services {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 70px 6%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">MOTION FORGE</div>
+
+    <nav>
+        <a href="#work">Work</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+
+<section class="hero">
+
+    <span>AI CREATIVE STUDIO</span>
+
+    <h1>
+        Visuals that<br>
+        make brands move.
+    </h1>
+
+    <p>
+        AI-powered reels, product advertisements and
+        creative visual content designed for modern brands.
+    </p>
+
+    <a href="#work" class="button">
+        VIEW MY WORK →
+    </a>
+
+</section>
+
+
+<section id="work">
+
+    <h2 class="section-title">Selected Work</h2>
+
+    <div class="work-grid">
+
+        <div class="work-card">
+            <div class="video-placeholder">
+                ▶ AI Furniture Advertisement
+            </div>
+
+            <div class="work-info">
+                <h3>Luxury Furniture Ad</h3>
+                <p>AI Product Advertisement</p>
+            </div>
+        </div>
+
+
+        <div class="work-card">
+            <div class="video-placeholder">
+                ▶ AI Social Media Reel
+            </div>
+
+            <div class="work-info">
+                <h3>Social Media Reel</h3>
+                <p>AI Short-form Content</p>
+            </div>
+        </div>
+
+
+        <div class="work-card">
+            <div class="video-placeholder">
+                ▶ AI Product Video
+            </div>
+
+            <div class="work-info">
+                <h3>Product Advertisement</h3>
+                <p>AI Product Visualization</p>
+            </div>
+        </div>
+
+
+        <div class="work-card">
+            <div class="video-placeholder">
+                ▶ AI Brand Video
+            </div>
+
+            <div class="work-info">
+                <h3>Brand Campaign</h3>
+                <p>AI Creative Content</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section id="services">
+
+    <h2 class="section-title">What I Create</h2>
+
+    <div class="services">
+
+        <div class="service">AI Reels</div>
+        <div class="service">Product Advertisements</div>
+        <div class="service">Furniture Advertisements</div>
+        <div class="service">Social Media Content</div>
+        <div class="service">AI Product Visualization</div>
+        <div class="service">Creative Brand Videos</div>
+
+    </div>
+
+</section>
+
+
+<section class="contact" id="contact">
+
+    <h2>Let's create<br>something.</h2>
+
+    <p>
+        Have a product or brand that needs attention?
+    </p>
+
+    <a class="button" href="mailto:YOUR_EMAIL@gmail.com">
+        CONTACT ME →
+    </a>
+
+</section>
+
+
+<footer>
+    © 2026 Motion Forge. All rights reserved.
+</footer>
+
+</body>
+</html>
